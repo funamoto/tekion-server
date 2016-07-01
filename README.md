@@ -24,7 +24,7 @@
 ### 情報取得API仕様
 * プロトコル:HTTPS(実装が難しければまずはHTTPで作成する)
 * HTTPコマンド:GET
-* URL:https://{host}/api/display?group={組織コード}&password={組織パスワード}
+* URL:https://{host}/api/display?group={組織コード}&token={アクセストークン}
 * データ形式:JSON
 * JSON形式:{"result" : {number}(判定結果:0=普通，1=寒い，2=熱い)}
 
@@ -32,4 +32,5 @@
 * プロトコル:HTTPS(実装が難しければまずはHTTPで作成する）
 * HTTPコマンド:POST
 * URL:https://{host}/api/vote?group={組織コード}&pin={個人識別番号}&vote={投票コード(0=普通，1=寒い，2=熱い)}
-* データ形式:なし(responseヘッダで結果を判定)
+* データ形式:JSON(結果はresponseヘッダで確認)
+* JSON形式:{"groupId" : {string}(グループID), "token" : {string}(アクセストークン), "vote" : {number}(判定結果:0=普通，1=寒い，2=熱い)}
