@@ -4,7 +4,12 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var Account = new Schema({
   username: String,
-  password: String
+  password: String,
+  organizationName: String,
+  locationCode: String,
+  userToken: { type: String, required: true },
+  voteThreshold: Number,
+  voteAvailableTime: Number
 });
 
 Account.plugin(passportLocalMongoose);

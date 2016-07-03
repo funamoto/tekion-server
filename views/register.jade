@@ -12,9 +12,15 @@ block content
       .form-group
         input.form-control(type='password', name="password", placeholder='Password')
       .form-group
-        input.form-control(type='text', name="organization", placeholder='Organization')
+        input.form-control(type='text', name="organizationName", placeholder='Organization Name')
       .form-group
-        input.form-control(type='text', name="location", placeholder='Location')
+        input.form-control(type='text', name="locationCode", placeholder='Location Code')
+      .form-group
+        input.form-control(type='text', name="userToken", placeholder='User Token')
+      .form-group
+        input.form-control(type='number', name="voteThreshold", placeholder='Vote Threshold', value="3", min="0")
+      .form-group
+        input.form-control(type='number', name="voteAvailableTime", placeholder='Vote Available Time', value="3600000", min="0")
       button.btn.btn-default(type='submit') Submit
       &nbsp;
       a(href='/')

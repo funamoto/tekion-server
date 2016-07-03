@@ -7,12 +7,23 @@ router.get('/register', function (req, res) {
   res.render('register', { title: "テキオン - 組織情報登録" });
 });
 
-router.post('/register', function (req, res) {
-  Account.register(new Account({ username: req.body.username }), req.body.password, function (err, account) {
+router.post('/register', function (req, res, next) {
+  if (req.body.voteThreshold < 0 || req.body.voteAvailableTime < 0) {
+    var err = new Error('Bad Request');
+    err.status = 400;
+    return next(err);
+  }
+  Account.register(new Account({
+    username: req.body.username,
+    organizationName: req.body.organizationName,
+    locationCode: req.body.locationCode,
+    userToken: req.body.userToken,
+    voteThreshold: req.body.voteThreshold,
+    voteAvailableTime: req.body.voteAvailableTime
+  }), req.body.password, function (err, account) {
     if (err) {
       return res.render('register', { title: "テキオン - 組織情報登録", error: err.message });
     }
-
     passport.authenticate('local')(req, res, function () {
       req.session.save(function (err) {
         if (err) {
