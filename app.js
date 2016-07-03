@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('express-session')({
-  secret: process.env.EXPRESS_SESSION_SECRET, // TODO: 設定ファイルに定義する
+  secret: process.env.EXPRESS_SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }));
@@ -45,7 +45,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect(process.env.MONGODB_URI); // TODO: 設定ファイルに定義する
+mongoose.connect(process.env.MONGODB_URI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
