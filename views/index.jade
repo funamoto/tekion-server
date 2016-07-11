@@ -1,13 +1,15 @@
-extends layout
+﻿extends layout
 
 block content
   .container
-    h1= title
-    p Welcome to #{title}
+    img(src='/images/logo.png')
+    p.lead 管理メニューを選択してください
     if (!user)
       a(href="/management/login") Login
       br
       a(href="/management/register") Register
     if (user)
       p You are currently logged in as #{user.username}
+      a(href="/management/edit") Edit(作成中)
+      br
       a(href="/management/logout") Logout

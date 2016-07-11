@@ -2,24 +2,31 @@
 
 block content
   .container
-    h1= title
+    img(src='/images/logo.png')
     p.lead 登録する組織の情報を入力してください
     if (error && error.length > 0)
       h4.error-msg= error
     form(role='form', action="/management/register", method="post", style='max-width: 300px;')
       .form-group
+        p ユーザ名
         input.form-control(type='text', name="username", placeholder='Username')
       .form-group
+        p パスワード
         input.form-control(type='password', name="password", placeholder='Password')
       .form-group
+        p 組織名(任意)
         input.form-control(type='text', name="organizationName", placeholder='Organization Name')
       .form-group
+        p 所在地コード(任意)
         input.form-control(type='text', name="locationCode", placeholder='Location Code')
       .form-group
+        p 利用者トークン
         input.form-control(type='text', name="userToken", placeholder='User Token')
       .form-group
+        p 有効投票閾値
         input.form-control(type='number', name="voteThreshold", placeholder='Vote Threshold', value="3", min="0")
       .form-group
+        p 有効投票時間(msec)
         input.form-control(type='number', name="voteAvailableTime", placeholder='Vote Available Time', value="3600000", min="0")
       button.btn.btn-default(type='submit') Submit
       &nbsp;

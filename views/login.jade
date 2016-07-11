@@ -2,14 +2,16 @@
 
 block content
   .container
-    h1= title
+    img(src='/images/logo.png')
     p.lead 管理する組織のアカウントでログインしてください
     if (error && error.length > 0)
       h4.error-msg= error
     form(role='form', action="/management/login", method="post", style='max-width: 300px;')
       .form-group
+        p ユーザ名
         input.form-control(type='text', name="username", placeholder='Username')
       .form-group
+        p パスワード
         input.form-control(type='password', name="password", placeholder='Password')
       button.btn.btn-default(type='submit') Login
       &nbsp;

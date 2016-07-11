@@ -26,7 +26,7 @@
 * HTTPコマンド:GET
 * URL:https://{host}/api/display?username={組織アカウント名}&userToken={一般ユーザアクセストークン}
 * データ形式:JSON
-* JSON形式:{"result" : {number}(判定結果:0=普通，1=寒い，2=熱い)}
+* JSON形式:{"result" : {number}(判定結果:0=普通，1=寒い，2=熱い), "weather" : {number}(気象:0=none, 1=晴れ, 2=曇り, 3=雨, 4=雪), "temperature" : {number}(温度)}
 
 ### 投票API仕様
 * プロトコル:HTTPS(実装が難しければまずはHTTPで作成する）
